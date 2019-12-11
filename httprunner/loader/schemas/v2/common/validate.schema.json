@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/validate.schema.json",
+    "title": "JSON schema for validate of httprunner",
+    "description": "JSON schema for validate of httprunner",
+    "type": "object",
+    "patternProperties": {
+        ".*": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2
+        }
+    }
+}

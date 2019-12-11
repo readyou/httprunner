@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/testcase.schema.json",
+    "title": "JSON schema for testcase of httprunner",
+    "description": "JSON schema for testcase of httprunner",
+    "type": "object",
+    "properties": {
+        "config": {
+            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/config.schema.json"
+        },
+        "teststeps": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/teststep"
+            }
+        }
+    },
+    "required": [
+        "teststeps"
+    ],
+    "definitions": {
+        "teststep": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "api": {
+                            "type": "string"
+                        },
+                        "variables": {
+                            "type": "object",
+                            "description": "Variables for the api."
+                        },
+                        "extract": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/extract.schema.json"
+                            }
+                        },
+                        "validate": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/validate.schema.json"
+                            }
+                        },
+                        "setup_hooks": {
+                            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/hook.schema.json"
+                        },
+                        "teardown_hooks": {
+                            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/hook.schema.json"
+                        }
+                    },
+                    "required": [
+                        "api"
+                    ]
+                },
+                {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "request": {
+                            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/request.schema.json"
+                        },
+                        "variables": {
+                            "type": "object",
+                            "description": "Variables for the api."
+                        },
+                        "extract": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/extract.schema.json"
+                            }
+                        },
+                        "validate": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/validate.schema.json"
+                            }
+                        },
+                        "setup_hooks": {
+                            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/hook.schema.json"
+                        },
+                        "teardown_hooks": {
+                            "$ref": "https://raw.githubusercontent.com/readyou/httprunner/dev/httprunner/loader/schemas/v2/common/hook.schema.json"
+                        }
+                    },
+                    "required": [
+                        "request"
+                    ]
+                }
+            ]
+        }
+    }
+}
